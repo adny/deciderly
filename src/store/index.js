@@ -6,12 +6,13 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   modules: {
     question: {
+      namespaced: true,
       state: {
         question: '',
         answers: []
       },
       actions: {
-        addTodo: ({ commit }, question) => commit('ADD_QUESTION_MUTATION', question),
+        addQuestion: ({ commit }, question) => commit('ADD_QUESTION_MUTATION', question),
         addAnswer: ({ commit }, answer) => commit('ADD_ANSWER_MUTATION', answer)
       },
       mutations: {

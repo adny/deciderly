@@ -1,19 +1,22 @@
 <template>
   <div>
     Ask a Question!
-    <input v-model="question">
+    <input :value="question">
+    <button @click="addQuestion(question)">set</button>
   </div>
 </template>
 
 <script>
   import store from '@/store'
+  import { mapState, mapActions } from 'vuex'
 
   export default {
-    data () {
-      return {
-        question: ''
-      }
-    },
+    computed: mapState('question', [
+      'question'
+    ]),
+    methods: mapActions('question', [
+      'addQuestion'
+    ]),
     store: store
   }
 </script>
